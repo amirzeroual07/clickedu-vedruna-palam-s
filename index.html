@@ -1,0 +1,255 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Vedruna Palamós - Clickedu. Programa de gestió escolar > </title>
+            <meta charset="UTF-8">
+            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15" />
+            <meta http-equiv="X-UA-Compatible" content="IE=9">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <meta http-equiv="content-language" content="ca-ES" />
+            <meta name="description" content="Gestió centre, Famílies, EVA, LMS i gestió del professorat, qualitat i excel·lència, comunicacions, compatible amb Android, iPad i dispositius mòbils"><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116303583-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-116303583-1');
+</script>            <link rel="stylesheet" type="text/css" href="https://assets.clickedu.eu/css/estils_pantalla_layout.css?v=20260312_091420" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://assets.clickedu.eu/css/estils_pantalla_generics.css?v=20260312_091420" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://assets.clickedu.eu/css/general.css?v=20260312_091420" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://assets.clickedu.eu/css/general2.css?v=20260312_091420" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://assets.clickedu.eu/css/estils_nous_pantalles.css?v=20260312_091420" media="screen">
+            <link rel="stylesheet" type="text/css" href="https://assets.clickedu.eu/css/estils_impressio.css?v=20260312_091420" media="print">
+
+                        <style>
+                input[type="number"] {
+                    -moz-appearance: textfield;
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+                input[type="number"]:hover,
+                input[type="number"]:focus {
+                    -moz-appearance: number-input;
+                }
+            </style>
+            <!-- shortcut icon -->
+<link rel="shortcut icon" type="image/x-icon" href="https://assets.clickedu.eu/img/favicon/clickedu/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="https://assets.clickedu.eu/img/favicon/clickedu/favicon.ico" />
+<!-- apple touch icon -->
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://assets.clickedu.eu/img/favicon/clickedu/apple-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://assets.clickedu.eu/img/favicon/clickedu/apple-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://assets.clickedu.eu/img/favicon/clickedu/apple-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://assets.clickedu.eu/img/favicon/clickedu/apple-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://assets.clickedu.eu/img/favicon/clickedu/apple-icon-76x76.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://assets.clickedu.eu/img/favicon/clickedu/apple-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="https://assets.clickedu.eu/img/favicon/clickedu/apple-icon.png">
+
+<!-- INI jQuery -->
+<script type="text/javascript" language="javascript" src="https://assets.clickedu.eu/js/jquery/jquery-3.3.1.min.js?v=20260312_091432"></script>
+<script type="text/javascript" language="javascript" src="https://assets.clickedu.eu/js/jquery/jquery-migrate-1.4.1.min.js?v=20260312_091432"></script>
+<!-- FI jQuery -->
+
+            <script type="text/javascript" src="https://assets.clickedu.eu/js/jquery.clickedu.js?v=20260312_091432"></script>
+                        <script src="https://assets.clickedu.eu/comuns/idioma/ca.js?v=20260312_091420" type="text/javascript"></script>
+            
+                        <link rel="stylesheet" type="text/css" href="./css/font-awesome5/web-fonts-with-css/css/all.min.css?v=20260312_091420">
+                            
+                
+<link rel="stylesheet" type="text/css" href="https://assets.clickedu.eu/css/bootstrap-3.3.7/bootstrap.min.css?v=20260312_091420" media="screen" />
+<link rel="stylesheet" type="text/css" href="https://assets.clickedu.eu/css/bootstrap/bootstrap_clickedu.css?v=20260312_091420" media="screen" />
+<link rel="stylesheet" type="text/css" href="https://assets.clickedu.eu/css/bootstrap/modal.min.css?v=20260312_091420" media="screen" />
+<link rel="stylesheet" type="text/css" href="https://assets.clickedu.eu/css/bootstrap/bootstrap_css_compiled.css?v=20260312_091420" media="screen" />
+<script type="text/javascript" language="javascript" src="https://assets.clickedu.eu/js/bootstrap-3.3.7/bootstrap.min.js?v=20260312_091430"></script>                                            <script type="text/javascript">
+            
+            
+                        function geolocationAction()
+                        {
+                            if ("geolocation" in navigator) {
+                                navigator.geolocation.getCurrentPosition(saveLocation, locationError);
+                            }
+                        }
+
+                        function saveLocation(pos) {
+                            var crd = pos.coords;
+                            $.post("../includes/ajax/ajax_assistencia_treballadors.php", {
+                                accio: "location",
+                                latitud: crd.latitude,
+                                longitud: crd.longitude
+                            });
+                        };
+
+                        function locationError(err) {
+                            console.warn("ERROR(" + err.code + "): " + err.message);
+                        };
+                                    $(document).ready( function() {
+
+                    
+                    geolocationAction();
+                    
+                    
+
+                $("#boto-assistencia").click(function(e){
+                    e.preventDefault();
+                    
+                    geolocationAction();
+                    
+                    $.post("../includes/ajax/ajax_assistencia_treballadors.php", {
+                            accio: "marcar"
+                        }, function(data) {
+                            if (data == 1) {
+                                $("#boto-assistencia").addClass("actiu");
+                            } else {
+                                $("#boto-assistencia").removeClass("actiu");
+                            }
+                    });
+                });
+
+                
+                    
+                });
+            </script>
+
+            
+<script type="text/javascript" language="javascript" src="https://assets.clickedu.eu/js/update_browser.js?v=20260312_091432"></script>
+<link rel="stylesheet" type="text/css" href="https://assets.clickedu.eu/css/estils_login.css?v=20260312_091420" media="screen" />
+        </head>
+        
+<body class="body_clickedu">
+<script type="text/javascript">
+$(document).ready(function() {
+
+
+        var passwordInput = document.getElementById("password");
+        var iconoMostrar = document.getElementById("iconoMostrar");
+        iconoMostrar.addEventListener("click", function() {
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                iconoMostrar.classList.remove("fa-eye");
+                iconoMostrar.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                iconoMostrar.classList.remove("fa-eye-slash");
+                iconoMostrar.classList.add("fa-eye");
+            }
+        });
+});
+</script>
+
+<div id="wrapper">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-4 col-md-offset-2 col-lg-offset-4">
+                    <form action="/login" id="frmLogin" name="frmLogin" autocomplete="off" method="post" class="login-form login-form-clickedu">
+                        <div class="header_white">
+                            <a href="#" target="_blank" class="logoEscolaLogin"><img src="https://vedrunapalamos.clickedu.eu/private/clickedu.vedrunapalamos.org/img_escola/logotip_pantalla.png" alt="Vedruna Palamós" title="Vedruna Palamós" id="logotip_escola", style="max-width: 165px" /></a>
+                        </div>
+                        <div class="header ">
+                            <h1>Iniciar sessió</h1>
+                        </div>
+                        <div class="content">
+                            
+            <div class="input-wrapper">
+                <i class="fa fa-user fa-lg"></i>
+                <input id="username" name="username" type="text" class="input username" value="Nom d'usuari" title="Nom d'usuari"
+                    onfocus="if(this.value == 'Nom d\'usuari') { this.value = ''; }" placeholder="Nom d'usuari" required="required"/>
+            </div>
+            <div class="input-wrapper">
+                <i class="fa fa-lg fa-lock"></i>
+                <input id="password" name="password" type="password" class="input password" title="Contrasenya" placeholder="Contrasenya" required="required"/><i class="fas fa-eye" id="iconoMostrar"></i>
+            </div><div class="register"><a href="user.php?action=recuperarPas">Heu oblidat la contrasenya?</a></div>
+                            <div class="trenca_float"><!-- --></div>
+                        </div>
+                        <div class="footer">
+                            <div class="pull-right"><div class="pull-right"><input type="submit" name="button" value="Inicia" style="background-color:#fc3d4a; color:white" class="btn btn-lg"/></div></div>
+                            <div>
+                <div id="google-button">
+                     <a href="./user.php?google">
+                        <img src="https://assets.clickedu.eu/img/login/btn_google_signin_light_normal_web.png?v=20260312_091424">
+                     </a>
+                </div>
+                <div id="office365-button">
+                     <a href="./user.php?live">
+                        <img src="https://assets.clickedu.eu/img/login/ms-symbollockup_signin_light.png?v=20260312_091424">
+                     </a>
+                </div></div>
+                            <div></div>
+                            <div class="apps"><!-- --></div>
+                            <div class="row">
+                            <div class='apps-logos'><div>
+                    <div class="div_link_app">
+                        <a href="https://play.google.com/store/apps/details?id=org.clickedu.Clickedu" target="_blank" title="Clickedu - Google Play (Android)" id="app_googleplay">
+                            <img src="https://assets.clickedu.eu/img/googleplay.png" title="Clickedu - Google Play (Android)" alt="Clickedu - Google Play (Android)" />
+                        </a>
+                    </div>
+                
+                    <div class="div_link_app">
+                        <a href="https://itunes.apple.com/es/app/clickedu/id691984809?mt=8" target="_blank" title="Clickedu - App Store (iOS)" id="app_appstore">
+                            <img src="https://assets.clickedu.eu/img/appstore.png" title="Clickedu - App Store (iOS)" alt="Clickedu - App Store (iOS)" />
+                        </a>
+                    </div>
+                <div class="trenca_float"><!-- --></div></div></div>
+                            </div>
+                        </div>
+                     </form>
+
+                     </div>
+                </div>
+            </div>
+        <div class="modal fade in" id="goPopup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog container-fluid container-purple">
+                <div class="modal-content">
+                    <div id="popup-title" class="modal-header">
+                        <h3 class="page-title">Política de cookies</h3>
+                    </div>
+                    <div class="modal-body" source-id="">
+                        
+                <h4><strong>Política de cookies</strong></h4>
+                <div>A Clickedu utilitzem galetes (<em>cookies</em>) per facilitar l'ús del lloc web, però en cap cas aquestes no emmagatzemen cap dada personal ni cap mena d'informació que pugui identificar-vos.<br><br><b>Què són les galetes?</b><br><br>Les galetes són petits arxius de text generats pels llocs web que visiteu que contenen les dades de sessió que poden ser d'utilitat, amb posterioritat, pel lloc web.<br>L'ús d'aquestes galetes és essencial per al correcte funcionament dels llocs web, ja que aporten innombrables avantatges, com recordar les dades d'usuari i cada part de la seva reserva a mesura que avança a través del lloc web o mostrar el contingut adequat en funció de les seves preferències i opcions seleccionades.<br>També faciliten la prestació de serveis interactius i la navegació i la usabilitat al web, que permet millorar la vostra experiència.<br><br><b>Galetes que utilitzem</b><br><br>Les úniques galetes que utilitza el nostre lloc web i la seva finalitat es detallen a continuació:<br>&#8212; Galetes de navegació: són estrictament necessàries i permeten a l'usuari la navegació a través del nostre lloc web, així com l'ús de les diferents opcions o serveis que hi ha, com controlar el trànsit i la comunicació de dades. La informació que contenen és genèrica i anònima: no s'hi inclouen dades personals ni es recull informació que identifiqui els visitants.<br>&#8212; Galetes de tercers per a l'anàlisi estadística i de rendiment, que de forma anònima permet fer un seguiment de la interacció de l'usuari dins del lloc web, saber quantes vegades visita el lloc, quan va ser la primera i última vegada que va visitar el web i, si hi ha cap problema de rendiment, tenir la informació.<br><br><strong>En visitar el nostre aplicatiu, accepteu la instal·lació d'aquestes galetes al vostre dispositiu, a part d'acceptar les condicions d'ús i privacitat indicades en aquest mateix lloc web.</strong></div>
+                <div class="PerSobre"><strong>Clickedu</strong> és un nom comercial registrat propietat de Clickart, taller de comunicació SL i està protegit pels drets d'autor. Més informació a <a href="https://clickedu.net/" target="_blank">https://clickedu.net/</a></div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-principal btn-sm" data-dismiss="modal">Acceptar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade in" id="goPopupPol" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog container-fluid container-purple">
+                <div class="modal-content">
+                    <div id="popup-title" class="modal-header">
+                        <h3 class="page-title">Condicions d'ús i privacitat</h3>
+                    </div>
+                    <div class="modal-body" source-id="">
+                        
+                <div>L'accés a aquest aplicatiu està subjecte a les condicions que s'estableixen en el contracte d'ús. Fins i tot en el cas de tractar-se de la versió de demostració, l'usuari té el deure de fer un bon ús de l'aplicatiu, de no intentar manipular-lo en allò que no està previst en el normal desenvolupament de les feines de l'usuari i de no facilitar-ne l'accés a tercers. En el supòsit de detectar qualsevol irregularitat, l'usuari es compromet a avisar immediatament Clickart per tal que pugui solucionar-se sense perjudici per a les parts.</div>
+                <h4><strong>Política de privacitat</strong></h4>
+                <div>A Clickedu ens comprometem a protegir la informació personal que compartiu amb nosaltres, ja que per a nosaltres és fonamental garantir i protegir la privacitat i la confidencialitat de les vostres dades personals, de conformitat amb el Reglament general de protecció de dades (Reglament UE 2016/679) (RGPD) i la Llei orgànica 3/2018, de 5 de desembre, de protecció de dades personals i garantia dels drets digitals (LOPDGDD).<br><br>Aquesta declaració estableix la nostra política de privadesa i de protecció de dades pel que fa a la informació que ens brindeu i així poder garantir-vos que i) en qualsevol moment podeu sol·licitar la cancel·lació de les vostres dades personals, sempre que es compleixin els requisits legals de protecció i conservació de dades; ii) ens comprometem al compliment de l'obligació de secret de les dades de caràcter personal recopilades, el deure de guardar-les i de no comunicar-les a tercers, sense el consentiment exprés del seu titular; iii) hem adoptat les mesures tècniques i organitzatives necessàries, tenint en compte l'estat de la tècnica, els costos d'aplicació i la naturalesa, l'abast, el context i les finalitats del tractament, així com riscos de probabilitat i gravetat variables per als drets i llibertats de les persones físiques, per garantir un nivell de seguretat adequat al risc detectat, i assegurar la pseudonimització i el xifrat de dades personals, així com la capacitat de garantir la confidencialitat, integritat, disponibilitat i resiliència permanents dels sistemes i serveis de tractament.<br><br><b>1. Responsable del tractament</b><br>Els termes i condicions que a continuació correspon a la mercantil CLICKART, TALLER DE COMUNICACIO SL CIF B-62.430.269. Domiciliada al carrer Llacuna, nombre 161, 2a planta (08018). Barcelona. Inscrita en el Registre Mercantil de Barcelona al protocol 3237/00, volum 33199, foli 174, full B225743, inscripció 1.<br><br><b>2. Dades del DPO</b><br>Si voleu contactar amb el DPO, podeu dirigir-vos-hi amb un escrit dirigit a dpo&nbsp;[at]&nbsp;clickedu&nbsp;[dot]&nbsp;net, a través del web del formulari contacta DPO i escrit dirigit a carrer Llacuna, número 161, 2a planta (08018). Barcelona.<br><br><b>3. Finalitat dels tractaments</b><br>La recollida i l'ús de dades personals només són possibles si ens proporciona voluntàriament les seves dades personals. Les diferents finalitats de tractament de les vostres dades personals són:<br><br>(i) Contractació Llicència d'Ús (el Contracte)<br>Les dades personals proporcionades en el curs de la vostra contractació (la Contractació) es recullen, processen i utilitzen amb la finalitat de gestionar la vostra Contractació per a la posterior execució del Contracte, i amb la finalitat del manteniment de la relació contractual, la gestió, administració, prestació, ampliació i millora dels serveis, així com l'enviament d'informació tècnica i operativa relacionada amb el Contracte, per qualsevol mitjà, inclòs el correu electrònic o mitjà equivalent.<br><br>(ii) Enquestes de satisfacció.<br>Les dades personals proporcionades en el curs de la vostra Contractació es recullen, processen i utilitzen amb la finalitat de millorar els serveis prestats per nosaltres.<br><br>(iii) Comunicacions comercials.<br>En el cas que ens doneu el vostre consentiment exprés i inequívoc, les dades personals proporcionades es recullen, processen i utilitzen amb la finalitat d'enviar comunicacions comercials tant en paper com per mitjans electrònics o telemàtics, relatives als productes i serveis que en cada moment comercialitzi Clickedu. L'usuari pot triar, en cada moment, els canals o mitjans pels quals desitja o no rebre les indicades comunicacions.<br><br>(iv) Allotjament de les dades.<br>Les dades personals del centre educatiu que hi ha contracte l'ús del nostre programa s'allotgen en un lloc segur. Clickedu no té accés a aquesta informació més enllà de la necessària per poder assegurar el bon funcionament de l'aplicació, així com assegurar la integritat, confidencialitat i disponibilitat de les dades allotjades.<br><br>3.1 Termini de conservació de les dades<br>Les dades personals proporcionades per a les finalitats de (i) a (iii) es conservaran mentre es mantingui la relació mercantil entre les parts i durant un termini màxim de 5 anys.<br>Les dades personals proporcionades per a la finalitat (iv) es conservaran mentre es mantingui la relació mercantil entre les parts.<br><br><b>4. Legitimació dels tractaments</b><br>La legitimació per al tractament de les dades personals proporcionades per a les finalitats de (i), (ii) i (iv) és el compliment de les obligacions legals basant-se el contracte mercantil subscrit entre les parts.<br>La legitimació per al tractament de les dades personals proporcionades per a la finalitat (iii) és el consentiment exprés i inequívoc prestat per part de la titular de les dades.<br><br><b>5. Destinataris</b><br>5.1 Comunicació de dades.<br><br>Clickedu comunicarà les vostres dades personals a tercers en els següents supòsits:<br><br>a) Obligació legal: amb la finalitat de donar compliment a qualsevol obligació legal que us incumbeixi, Clickedu comunicarà, si escau, les vostres dades personals a tercers.<br><br>b) Execució del Contracte: Amb la finalitat de donar compliment a qualsevol obligació derivada de l'execució del contracte subscrit, Clickedu comunicarà les vostres dades personals als proveïdors de serveis tecnològics amb els quals es té contractat l'allotjament de la plataforma.<br>5.2 Transmissió de dades a països fora de la UE (Unió Europea).<br>Clickedu no realitza transmissió de dades a països fora de la UE (Unió Europea).<br><br><b>6. Exercici de drets per part de la titular</b><br>Us informem que teniu dret, de forma gratuïta i en la mesura que es compleixin els requisits legals, a exercir els drets d'accés, rectificació, supressió, portabilitat de les seves dades, oposició, limitació del tractament, així com a no ser objecte de decisions individuals no automatitzades.<br>En totes les comunicacions el propòsit de les quals sigui la remissió de publicitat, podeu exercir el vostre dret d'oposició i limitació de tractament. A més, en la mesura que hàgiu atorgat el consentiment de protecció de dades, podeu revocar-lo en qualsevol moment amb efecte per al futur.<br>Per exercir aquests drets o la retirada del consentiment prestat, podeu dirigir-vos per escrit a Clickedu amb la referència 'Drets RGPD', a la seva seu social situada a Llacuna, número 161, 2a planta (08018) de Barcelona o mitjançant correu electrònic dirigit al DPO de Clickedu (dpo&nbsp;[at]&nbsp;clickedu&nbsp;[dot]&nbsp;net).<br><br><b>7. Reclamacions davant l'autoritat de protecció de dades</b><br>L'usuari pot dirigir les seves reclamacions derivades del tractament de les seves dades de caràcter personal davant l'Agència Espanyola de Protecció de Dades (www.agpd.es).<br><br>Aquesta política de protecció de dades es va modificar per última el desembre del 2018.</div>
+                <div class="PerSobre"><strong>Clickedu</strong> és un nom comercial registrat propietat de Clickart, taller de comunicació SL i està protegit pels drets d'autor. Més informació a <a href="https://clickedu.net/" target="_blank">https://clickedu.net/</a></div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-principal btn-sm" data-dismiss="modal">Acceptar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    <div class="row navbar-fixed-bottom pull-center">
+                        <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-4 col-md-offset-2 col-lg-offset-4">
+                                <div class="row nota_legal">
+                                    <div><a href="https://clickedu.net/" target="_blank"><img src="https://assets.clickedu.eu/img/logo_clickedu.png" alt="El software Clickedu és una plataforma escolar CLOUD que inclou la gestió acadèmica i econòmica, un LMS o entorn virtual d'aprenentatge - amb connexió a llibres digitals - la gestió del professorat, tutors i caps d'estudis; la qualitat del centre i un entorn privat i segur de comunicació amb les famílies" title="El software Clickedu és una plataforma escolar CLOUD que inclou la gestió acadèmica i econòmica, un LMS o entorn virtual d'aprenentatge - amb connexió a llibres digitals - la gestió del professorat, tutors i caps d'estudis; la qualitat del centre i un entorn privat i segur de comunicació amb les famílies" id="logotip_peu" /></a></div><div class="trenca_float xxxPerEsquerra">
+                <div>Copyright &copy; 2026 Clickart, taller de comunicació SL, sobre l'arquitectura i el desenvolupament d'aquest aplicatiu. Tots els drets reservats. <a href="#" data-toggle="modal" data-target="#goPopup">Veure política de cookies</a> | <a href="#" data-toggle="modal" data-target="#goPopupPol">Veure les condicions d'ús i privacitat</a> | <a href="https://clickedu.net/ca/declaracio-accessibilitat/" target="_blank">Declaració d'accessibilitat</a></div></div>
+                            </div>
+                        </div>
+                        <div class="row nota_legal_footer"><!-- --></div>
+                    </div></div>
+
+
+</body>
+</html>
